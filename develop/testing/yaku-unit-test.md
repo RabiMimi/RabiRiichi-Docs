@@ -2,7 +2,7 @@
 title: 役种单元测试
 description: 用各种牌型对单个役种进行测试
 published: true
-date: 2022-05-27T09:00:46.669Z
+date: 2022-05-27T09:05:15.681Z
 tags: dev, testing, yaku
 editor: markdown
 dateCreated: 2022-05-06T05:54:58.971Z
@@ -62,9 +62,25 @@ protected StdPattern V { get; set; } = new Iipeikou(null);
 
 ![11222333s22456m+4s](https://mj.ero.fyi/11222333s22456m+4s)
 
-该牌型符合一杯口，所以我们调用`Resolve(true)`来确认牌型判定类成功解析。接下来，我们确认解析成功后的输出为1番。
+该牌型符合一杯口，所以我们调用`Resolve(true)`来确认牌型判定类成功解析。然后，我们确认解析成功后的输出为1番，并且没有多余输出。
+
+相反，如果要测试不满足要求的牌型，则需要调用`Resolve(false)`，不需要测试番数计算结果。
 
 ![11222333s22+456m+4s](https://mj.ero.fyi/11222333s22+456m+4s)
+
+（这个牌型不是门清，因此不满足一杯口）
+
+### AddFree
+
+增加一组手牌里的牌。
+
+### AddCalled
+
+增加一组副露或暗杠。
+
+### AddAgari
+
+和了牌所在的组可能会影响牌型判定，因此需要使用该方法添加。
 
 ## 测试受门清状态影响的牌型
 
