@@ -2,7 +2,7 @@
 title: 役种单元测试
 description: 用各种牌型对单个役种进行测试
 published: true
-date: 2022-05-27T09:07:39.741Z
+date: 2022-05-27T09:08:09.887Z
 tags: dev, testing, yaku
 editor: markdown
 dateCreated: 2022-05-06T05:54:58.971Z
@@ -12,7 +12,8 @@ dateCreated: 2022-05-06T05:54:58.971Z
 
 这是编写`StdPattern`测试的教程。
 
-> `BasePattern`对牌进行分组以后传递给`StdPattern`，后者输出番数或符数计算结果。因此，`StdPattern`接收的输入中，所有牌已经分好组（例如33332），不需要关心分组方式。
+`BasePattern`对牌进行分组以后传递给`StdPattern`，后者输出番数或符数计算结果。因此，`StdPattern`接收的输入中，所有牌已经分好组（例如33332），不需要关心分组方式。
+
 > 相同的牌可能因为分组方式不同产生不同的计算结果。
 {.is-warning}
 
