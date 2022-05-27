@@ -2,7 +2,7 @@
 title: 役种单元测试
 description: 用各种牌型对单个役种进行测试
 published: true
-date: 2022-05-06T05:55:40.957Z
+date: 2022-05-27T08:43:42.895Z
 tags: dev, testing, yaku
 editor: markdown
 dateCreated: 2022-05-06T05:54:58.971Z
@@ -11,6 +11,39 @@ dateCreated: 2022-05-06T05:54:58.971Z
 # 识别牌型
 
 ## 牌型测试基础
+
+让我们从测试一个一杯口牌型开始：
+
+```cs
+[TestClass]
+public class IipeikouTest {
+    protected StdPattern V { get; set; } = new Iipeikou(null);
+
+    [TestMethod]
+    public void TestResolved() {
+        new StdTestBuilder(V)
+            .AddFree("123s")
+            .AddFree("123s")
+            .AddFree("456m")
+            .AddFree("22m")
+            .AddAgari("23s", "4s")
+            .Resolve(true)
+            .ExpectScoring(ScoringType.Han, 1)
+            .NoMore();
+    }
+
+    [TestMethod]
+    public void TestFailed() {
+        new StdTestBuilder(V)
+            .AddFree("123s")
+            .AddFree("123s")
+            .AddCalled("456m", 0)
+            .AddFree("22m")
+            .AddAgari("23s", "4s")
+            .Resolve(false);
+    }
+}
+```
 
 ## 测试受门清状态影响的牌型
 
