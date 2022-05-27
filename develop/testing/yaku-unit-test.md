@@ -2,13 +2,15 @@
 title: 役种单元测试
 description: 用各种牌型对单个役种进行测试
 published: true
-date: 2022-05-27T08:45:59.080Z
+date: 2022-05-27T08:49:31.319Z
 tags: dev, testing, yaku
 editor: markdown
 dateCreated: 2022-05-06T05:54:58.971Z
 ---
 
 # 识别牌型
+
+这是编写`StdPattern`测试的教程。`StdPattern`将处理已分好组
 
 ## 牌型测试基础
 
@@ -46,7 +48,9 @@ public class IipeikouTest {
 ```
 其中，`TestResolved()`方法测试的是以下牌型：
 
-![112223334s22456m](https://mj.ero.fyi/112223334s22456m)
+![11222333s22456m+4s](https://mj.ero.fyi/11222333s22456m+4s)
+
+`BasePattern`类会对 牌型所接受的输入必须已分好组
 
 ## 测试受门清状态影响的牌型
 
