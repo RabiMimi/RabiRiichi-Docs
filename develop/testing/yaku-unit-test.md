@@ -2,7 +2,7 @@
 title: 役种单元测试
 description: 用各种牌型对单个役种进行测试
 published: true
-date: 2022-05-27T08:43:42.895Z
+date: 2022-05-27T08:45:59.080Z
 tags: dev, testing, yaku
 editor: markdown
 dateCreated: 2022-05-06T05:54:58.971Z
@@ -44,6 +44,9 @@ public class IipeikouTest {
     }
 }
 ```
+其中，`TestResolved()`方法测试的是以下牌型：
+
+![112223334s22456m](https://mj.ero.fyi/112223334s22456m)
 
 ## 测试受门清状态影响的牌型
 
