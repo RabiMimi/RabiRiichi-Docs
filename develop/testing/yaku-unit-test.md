@@ -2,7 +2,7 @@
 title: 役种单元测试
 description: 用各种牌型对单个役种进行测试
 published: true
-date: 2022-05-27T08:53:17.052Z
+date: 2022-05-27T09:00:46.669Z
 tags: dev, testing, yaku
 editor: markdown
 dateCreated: 2022-05-06T05:54:58.971Z
@@ -12,7 +12,7 @@ dateCreated: 2022-05-06T05:54:58.971Z
 
 这是编写`StdPattern`测试的教程。
 
-> `BasePattern`对牌进行分组以后传递给`StdPattern`，后者生成番数或符数计算结果。因此，`StdPattern`接收的输入中，所有牌已经分好组（例如33332），不需要关心分组方式。
+> `BasePattern`对牌进行分组以后传递给`StdPattern`，后者输出番数或符数计算结果。因此，`StdPattern`接收的输入中，所有牌已经分好组（例如33332），不需要关心分组方式。
 > 相同的牌可能因为分组方式不同产生不同的计算结果。
 {.is-warning}
 
@@ -51,11 +51,20 @@ public class IipeikouTest {
     }
 }
 ```
-其中，`TestResolved()`方法测试的是以下牌型：
+
+首先，我们创建了一个一杯口牌型判定类的实例：
+```cs
+protected StdPattern V { get; set; } = new Iipeikou(null);
+```
+请根据该牌型构造函数的参数个数，传入对应个数的`null`。不必担心，这些参数在单元测试中用不到。实际运行中，依赖注入框架将会传入正确的参数。
+
+接下来，`TestResolved()`方法测试了以下牌型：
 
 ![11222333s22456m+4s](https://mj.ero.fyi/11222333s22456m+4s)
 
-`BasePattern`类会对 牌型所接受的输入必须已分好组
+该牌型符合一杯口，所以我们调用`Resolve(true)`来确认牌型判定类成功解析。接下来，我们确认解析成功后的输出为1番。
+
+![11222333s22+456m+4s](https://mj.ero.fyi/11222333s22+456m+4s)
 
 ## 测试受门清状态影响的牌型
 
