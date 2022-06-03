@@ -2,7 +2,7 @@
 title: 役种单元测试
 description: 用各种牌型对单个役种进行测试
 published: true
-date: 2022-05-27T09:08:09.887Z
+date: 2022-06-03T04:18:51.235Z
 tags: dev, testing, yaku
 editor: markdown
 dateCreated: 2022-05-06T05:54:58.971Z
@@ -67,7 +67,7 @@ protected StdPattern V { get; set; } = new Iipeikou(null);
 
 相反，如果要测试不满足要求的牌型，则需要调用`Resolve(false)`，不需要测试番数计算结果。
 
-![11222333s22+456m+4s](https://mj.ero.fyi/11222333s22+456m+4s)
+![11222333s22+-456m+4s](https://mj.ero.fyi/11222333s22+-456m+4s)
 
 （这个牌型不是门清，因此不满足一杯口）
 
