@@ -2,17 +2,16 @@
 title: 底和单元测试
 description: 测试解析分组方式和向听数
 published: true
-date: 2022-06-08T09:27:10.736Z
+date: 2022-06-08T09:28:23.452Z
 tags: dev, testing
 editor: markdown
 dateCreated: 2022-06-08T08:57:09.014Z
 ---
 
-# 解析牌型和向听数
 这是编写`BasePattern`测试的教程。
 `BasePattern`接收13或14张牌，然后对其进行分组，以输入给`StdPattern`进行役种识别。同时，`BasePattern`也负责计算向听数。
 
-## 解析牌型
+# 解析牌型
 
 `BaseTest`提供了便捷的方法`Resolve`来测试牌型解析：
 ```cs
@@ -35,6 +34,8 @@ public class Base33332Test : BaseTest {
 ![122334s5567p+567p+7p](https://mj.ero.fyi/122334s5567p+567p+7p)
 该牌型不符合33332，`Resolve`应当返回`false`，说明该牌型不满足要求。
 
+## 测试API
+
 ### Resolve
 
 该方法的前两个参数是必要的，分别表示手牌和和了牌。之后可以添加任意数量的参数，表示确定的面子（副露或暗杠）。下面是一些例子：
@@ -48,7 +49,7 @@ Assert.IsTrue(Resolve("6666666666666z", "6z"));
 ```
 ![6666666666666z+6z](https://mj.ero.fyi/6666666666666z+6z)
 
-## 测试向听数
+# 测试向听数
 
 `BaseTest`提供了便捷的方法`Shanten`来测试向听数解析：
 ```cs
@@ -70,6 +71,8 @@ public class Base33332Test : BaseTest {
 }
 ```
 
+## 测试API
+
 ### Shanten
 
 `Shanten`参数类型和`Resolve`基本相同（它有一个额外的参数设置最大向听数），不同之处在于它会返回给出的牌型的向听数，并依此设置`tiles`变量的值。`Shanten`的第二个参数将影响`tiles`内包含的牌的含义：
@@ -83,7 +86,7 @@ public class Base33332Test : BaseTest {
 - ![25569m2589p5s357z+3s](https://mj.ero.fyi/25569m2589p5s357z+3s)
 5向听，可切![2569m25p357z](https://mj.ero.fyi/2569m25p357z)
 
-### 已经和牌的场合
+## 已经和牌的场合
 
 在14张牌的情况下，若已和牌，则向听数为$-1$，且`tiles`将为空。例如：
 ```cs
@@ -99,7 +102,7 @@ tiles.AssertEquals("");
 - ![1s+222s+345s+111p+111z+1s](https://mj.ero.fyi/1s+222s+345s+111p+111z+1s)
 已经和牌
 
-### 测试中途终止解析的情况
+## 测试中途终止解析的情况
 
 若已确定向听数超过上限，`Shanten`会返回`int.MaxValue`，同时将`tiles`设为`null`：
 ```cs
