@@ -2,7 +2,7 @@
 title: 役种单元测试
 description: 用各种牌型对单个役种进行测试
 published: true
-date: 2022-06-08T08:33:38.123Z
+date: 2022-06-08T08:37:03.958Z
 tags: dev, testing, yaku
 editor: markdown
 dateCreated: 2022-05-06T05:54:58.971Z
@@ -121,6 +121,8 @@ public void TestTanyaoFailed() {
 ```
 
 ## 进阶：在测试中Mock游戏组件
+
+`StdTestBuilder`会创建部分Mock的游戏组件，可以参考[RabiMock.cs](https://github.com/RabiMimi/RabiRiichi/blob/develop/RabiRiichiTests/Helper/RabiMock.cs)以查看哪些组件被Mock了。一般而言，牌型测试中用不到组件Mock。
 
 # 得分修正
 
