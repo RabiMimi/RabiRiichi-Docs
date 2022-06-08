@@ -2,7 +2,7 @@
 title: 役种单元测试
 description: 用各种牌型对单个役种进行测试
 published: true
-date: 2022-06-08T08:25:38.963Z
+date: 2022-06-08T08:33:38.123Z
 tags: dev, testing, yaku
 editor: markdown
 dateCreated: 2022-05-06T05:54:58.971Z
@@ -39,17 +39,6 @@ public class IipeikouTest {
             .ExpectScoring(ScoringType.Han, 1)
             .NoMore();
     }
-
-    [TestMethod]
-    public void TestFailed() {
-        new StdTestBuilder(V)
-            .AddFree("123s")
-            .AddFree("123s")
-            .AddCalled("456m", 0)
-            .AddFree("22m")
-            .AddAgari("23s", "4s")
-            .Resolve(false);
-    }
 }
 ```
 
@@ -65,13 +54,23 @@ protected StdPattern V { get; set; } = new Iipeikou(null);
 
 该牌型符合一杯口，所以我们调用`Resolve(true)`来确认牌型判定类成功解析。然后，我们确认解析成功后的输出为1番，并且没有多余输出。
 
-相反，如果要测试不满足要求的牌型，则需要调用`Resolve(false)`，不需要测试番数计算结果。
+相反，如果要测试不满足要求的牌型，则需要调用`Resolve(false)`，不需要测试番数计算结果：
+```cs
+[TestMethod]
+public void TestFailed() {
+    new StdTestBuilder(V)
+        .AddFree("123s")
+        .AddFree("123s")
+        .AddCalled("456m", 0)
+        .AddFree("22m")
+        .AddAgari("23s", "4s")
+        .Resolve(false);
+}
+```
 
 ![11222333s22+-456m+4s](https://mj.ero.fyi/11222333s22+-456m+4s)
 
-（这个牌型不是门清，因此不满足一杯口）
-
-> TODO(@Frenqy): 完善一下
+`AddCalled("456m", 0)`指定了一个副露的面子，0说明下标为0的牌（即4m）来自别的玩家弃牌。因此，这个牌型不是门清，不满足一杯口。
 
 ### AddFree
 
@@ -97,13 +96,29 @@ protected StdPattern V { get; set; } = new Iipeikou(null);
 
 确认除了已经测试过的番数/符数，没有输出多余的结果。
 
-## 测试受门清状态影响的牌型
+### ForceMenzen
 
-添加一组副露后，手牌的门清状态会自动改变。也可以通过`ForceMenzen`API来手动指定门清状态。
+强制指定门清状态。
 
-## 测试受和牌方式影响的牌型
+> 默认情况下将通过副露情况计算是否门清，因此一般没有必要手动指定。
+{.is-info}
 
 ## 测试受游戏配置影响的牌型
+
+可以通过`WithConfig`方法来修改游戏配置以测试特殊牌型。例如，以下代码测试了在无食断时不能在非门清状态下达成断幺九：
+```cs
+[TestMethod]
+public void TestTanyaoFailed() {
+    new StdTestBuilder(V)
+        .WithConfig(config => config.agariOption &= ~AgariOption.Kuitan)
+        .AddCalled("234s", 0)
+        .AddFree("345p")
+        .AddFree("456m")
+        .AddFree("22m")
+        .AddAgari("23s", "4s")
+        .Resolve(false);
+}
+```
 
 ## 进阶：在测试中Mock游戏组件
 
