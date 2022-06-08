@@ -2,7 +2,7 @@
 title: 役种单元测试
 description: 用各种牌型对单个役种进行测试
 published: true
-date: 2022-06-08T08:37:03.958Z
+date: 2022-06-08T09:26:14.457Z
 tags: dev, testing, yaku
 editor: markdown
 dateCreated: 2022-05-06T05:54:58.971Z
@@ -54,6 +54,8 @@ protected StdPattern V { get; set; } = new Iipeikou(null);
 
 该牌型符合一杯口，所以我们调用`Resolve(true)`来确认牌型判定类成功解析。然后，我们确认解析成功后的输出为1番，并且没有多余输出。
 
+## 不满足要求的牌型
+
 相反，如果要测试不满足要求的牌型，则需要调用`Resolve(false)`，不需要测试番数计算结果：
 ```cs
 [TestMethod]
@@ -71,6 +73,8 @@ public void TestFailed() {
 ![11222333s22+-456m+4s](https://mj.ero.fyi/11222333s22+-456m+4s)
 
 `AddCalled("456m", 0)`指定了一个副露的面子，0说明下标为0的牌（即4m）来自别的玩家弃牌。因此，这个牌型不是门清，不满足一杯口。
+
+## 测试API
 
 ### AddFree
 
