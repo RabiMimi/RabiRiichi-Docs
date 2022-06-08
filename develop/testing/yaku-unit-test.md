@@ -2,7 +2,7 @@
 title: 役种单元测试
 description: 用各种牌型对单个役种进行测试
 published: true
-date: 2022-06-08T08:22:40.743Z
+date: 2022-06-08T08:25:38.963Z
 tags: dev, testing, yaku
 editor: markdown
 dateCreated: 2022-05-06T05:54:58.971Z
@@ -98,6 +98,8 @@ protected StdPattern V { get; set; } = new Iipeikou(null);
 确认除了已经测试过的番数/符数，没有输出多余的结果。
 
 ## 测试受门清状态影响的牌型
+
+添加一组副露后，手牌的门清状态会自动改变。也可以通过`ForceMenzen`API来手动指定门清状态。
 
 ## 测试受和牌方式影响的牌型
 
