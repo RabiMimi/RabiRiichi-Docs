@@ -2,7 +2,7 @@
 title: 底和单元测试
 description: 测试解析分组方式和向听数
 published: true
-date: 2022-06-08T09:24:40.885Z
+date: 2022-06-08T09:27:10.736Z
 tags: dev, testing
 editor: markdown
 dateCreated: 2022-06-08T08:57:09.014Z
@@ -30,8 +30,6 @@ public class Base33332Test : BaseTest {
 这个方法中，我们测试了顺子的解析。第一个牌型为：
 ![122334s5r677p+567p+7p](https://mj.ero.fyi/122334sr5677p+567p+7p)
 由于该牌型符合33332，`Resolve`应当返回`true`，说明该牌型被成功解析。
-
----
 
 相对的，第二个牌型为：
 ![122334s5567p+567p+7p](https://mj.ero.fyi/122334s5567p+567p+7p)
@@ -85,7 +83,7 @@ public class Base33332Test : BaseTest {
 - ![25569m2589p5s357z+3s](https://mj.ero.fyi/25569m2589p5s357z+3s)
 5向听，可切![2569m25p357z](https://mj.ero.fyi/2569m25p357z)
 
----
+### 已经和牌的场合
 
 在14张牌的情况下，若已和牌，则向听数为$-1$，且`tiles`将为空。例如：
 ```cs
@@ -101,7 +99,7 @@ tiles.AssertEquals("");
 - ![1s+222s+345s+111p+111z+1s](https://mj.ero.fyi/1s+222s+345s+111p+111z+1s)
 已经和牌
 
----
+### 测试中途终止解析的情况
 
 若已确定向听数超过上限，`Shanten`会返回`int.MaxValue`，同时将`tiles`设为`null`：
 ```cs
