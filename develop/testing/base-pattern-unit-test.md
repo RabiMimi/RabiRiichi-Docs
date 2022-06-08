@@ -2,7 +2,7 @@
 title: 底和单元测试
 description: 测试解析分组方式和向听数
 published: true
-date: 2022-06-08T09:28:23.452Z
+date: 2022-06-08T09:29:39.285Z
 tags: dev, testing
 editor: markdown
 dateCreated: 2022-06-08T08:57:09.014Z
@@ -102,7 +102,7 @@ tiles.AssertEquals("");
 - ![1s+222s+345s+111p+111z+1s](https://mj.ero.fyi/1s+222s+345s+111p+111z+1s)
 已经和牌
 
-## 测试中途终止解析的情况
+## 中途终止解析
 
 若已确定向听数超过上限，`Shanten`会返回`int.MaxValue`，同时将`tiles`设为`null`：
 ```cs
