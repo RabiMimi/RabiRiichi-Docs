@@ -2,7 +2,7 @@
 title: 役种单元测试
 description: 用各种牌型对单个役种进行测试
 published: true
-date: 2022-06-03T04:18:51.235Z
+date: 2022-06-08T08:22:40.743Z
 tags: dev, testing, yaku
 editor: markdown
 dateCreated: 2022-05-06T05:54:58.971Z
@@ -73,19 +73,19 @@ protected StdPattern V { get; set; } = new Iipeikou(null);
 
 > TODO(@Frenqy): 完善一下
 
-### AddFree(string)
+### AddFree
 
 增加一组手牌里的牌。
 
-### AddCalled(string, string)
+### AddCalled
 
-增加一组副露或暗杠。
+增加一组副露或暗杠。可以指定副露牌的下标，下标-1代表无副露（暗杠）。
 
 ### AddAgari
 
 和了牌所在的组可能会影响牌型判定，因此需要使用该方法添加。
 
-### Resolve(boolean)
+### Resolve
 
 使用`Resolve(true)`来测试符合要求的牌型，或`Resolve(false)`来测试不符合要求的牌型。
 
