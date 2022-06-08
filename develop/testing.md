@@ -2,7 +2,7 @@
 title: 编写测试
 description: 用代码复原千变万化的牌局
 published: true
-date: 2022-05-06T09:43:17.220Z
+date: 2022-06-08T08:57:57.734Z
 tags: dev, testing
 editor: markdown
 dateCreated: 2022-05-06T06:30:23.880Z
@@ -14,7 +14,9 @@ dateCreated: 2022-05-06T06:30:23.880Z
 
 编写测试时，请参考以下教程：
 
+- [底和单元测试](/zh/develop/testing/base-pattern-unit-test)
+
 - [役种单元测试](/zh/develop/testing/yaku-unit-test)
-{.links-list}
 
 - [场景测试](/zh/develop/testing/scenario-test)
+{.links-list}
