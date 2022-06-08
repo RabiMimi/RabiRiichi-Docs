@@ -2,7 +2,7 @@
 title: 役种单元测试
 description: 用各种牌型对单个役种进行测试
 published: true
-date: 2022-06-08T09:26:14.457Z
+date: 2022-06-08T09:29:28.911Z
 tags: dev, testing, yaku
 editor: markdown
 dateCreated: 2022-05-06T05:54:58.971Z
@@ -107,7 +107,7 @@ public void TestFailed() {
 > 默认情况下将通过副露情况计算是否门清，因此一般没有必要手动指定。
 {.is-info}
 
-## 测试受游戏配置影响的牌型
+## 受游戏配置影响的牌型
 
 可以通过`WithConfig`方法来修改游戏配置以测试特殊牌型。例如，以下代码测试了在无食断时不能在非门清状态下达成断幺九：
 ```cs
@@ -124,7 +124,7 @@ public void TestTanyaoFailed() {
 }
 ```
 
-## 进阶：在测试中Mock游戏组件
+## 进阶：Mock游戏组件
 
 `StdTestBuilder`会创建部分Mock的游戏组件，可以参考[RabiMock.cs](https://github.com/RabiMimi/RabiRiichi/blob/develop/RabiRiichiTests/Helper/RabiMock.cs)以查看哪些组件被Mock了。一般而言，牌型测试中用不到组件Mock。
 
