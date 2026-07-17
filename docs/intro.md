@@ -83,7 +83,11 @@ is described in [Tile notation](./core/tile-notation.md).
 
 - **Language / runtime:** C#, .NET 9.
 - **License:** AGPL v3.
-- **Repositories:** the [engine + server](https://github.com/RabiMimi/RabiRiichi)
-  and [these docs](https://github.com/RabiMimi/RabiRiichi-Docs).
-- **Shared protos:** wire messages live in a `Protos` git submodule shared with
-  the web client, compiled at build time.
+- **Repositories:** the
+  [engine + server](https://github.com/RabiMimi/RabiRiichi), the
+  [web client](https://github.com/RabiMimi/RabiRiichi-Web), the shared
+  [protos](https://github.com/RabiMimi/RabiRiichi-Proto), and
+  [these docs](https://github.com/RabiMimi/RabiRiichi-Docs).
+- **Shared protos:** wire messages live in the
+  [`RabiRiichi-Proto`](https://github.com/RabiMimi/RabiRiichi-Proto) git submodule
+  shared with the web client, compiled at build time.

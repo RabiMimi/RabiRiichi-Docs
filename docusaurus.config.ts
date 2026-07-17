@@ -6,6 +6,8 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const GITHUB_ORG = 'RabiMimi';
 const GITHUB_ENGINE_REPO = 'https://github.com/RabiMimi/RabiRiichi';
+const GITHUB_WEB_REPO = 'https://github.com/RabiMimi/RabiRiichi-Web';
+const GITHUB_PROTO_REPO = 'https://github.com/RabiMimi/RabiRiichi-Proto';
 const GITHUB_DOCS_REPO = 'https://github.com/RabiMimi/RabiRiichi-Docs';
 
 const config: Config = {
@@ -95,9 +97,15 @@ const config: Config = {
           label: 'Testing',
         },
         {
-          href: GITHUB_ENGINE_REPO,
+          type: 'dropdown',
           label: 'GitHub',
           position: 'right',
+          items: [
+            {label: 'Engine + Server (RabiRiichi)', href: GITHUB_ENGINE_REPO},
+            {label: 'Web client (RabiRiichi-Web)', href: GITHUB_WEB_REPO},
+            {label: 'Protos (RabiRiichi-Proto)', href: GITHUB_PROTO_REPO},
+            {label: 'Docs (RabiRiichi-Docs)', href: GITHUB_DOCS_REPO},
+          ],
         },
       ],
     },
@@ -122,10 +130,12 @@ const config: Config = {
           ],
         },
         {
-          title: 'More',
+          title: 'GitHub',
           items: [
-            {label: 'Engine on GitHub', href: GITHUB_ENGINE_REPO},
-            {label: 'Docs on GitHub', href: GITHUB_DOCS_REPO},
+            {label: 'Engine + Server', href: GITHUB_ENGINE_REPO},
+            {label: 'Web client', href: GITHUB_WEB_REPO},
+            {label: 'Protos', href: GITHUB_PROTO_REPO},
+            {label: 'Docs', href: GITHUB_DOCS_REPO},
           ],
         },
       ],
