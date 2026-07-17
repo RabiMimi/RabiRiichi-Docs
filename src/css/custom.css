@@ -1,0 +1,28 @@
+/**
+ * Global styles. The classic template bundles Infima. RabiRiichi's brand accent
+ * is a rose/pink (matching the web client), so we override the primary palette.
+ */
+
+:root {
+  --ifm-color-primary: #d81b60;
+  --ifm-color-primary-dark: #c31856;
+  --ifm-color-primary-darker: #b81751;
+  --ifm-color-primary-darkest: #981343;
+  --ifm-color-primary-light: #e0316f;
+  --ifm-color-primary-lighter: #e23c77;
+  --ifm-color-primary-lightest: #e75e8f;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+/* Lighter palette for dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #ff7a99;
+  --ifm-color-primary-dark: #ff5b81;
+  --ifm-color-primary-darker: #ff4c75;
+  --ifm-color-primary-darkest: #ff1f52;
+  --ifm-color-primary-light: #ff99b1;
+  --ifm-color-primary-lighter: #ffa8bd;
+  --ifm-color-primary-lightest: #ffd5df;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
