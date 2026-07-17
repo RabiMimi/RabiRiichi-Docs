@@ -1,5 +1,5 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
@@ -101,10 +101,10 @@ const config: Config = {
           label: 'GitHub',
           position: 'right',
           items: [
-            {label: 'Engine + Server (RabiRiichi)', href: GITHUB_ENGINE_REPO},
-            {label: 'Web client (RabiRiichi-Web)', href: GITHUB_WEB_REPO},
-            {label: 'Protos (RabiRiichi-Proto)', href: GITHUB_PROTO_REPO},
-            {label: 'Docs (RabiRiichi-Docs)', href: GITHUB_DOCS_REPO},
+            { label: 'Engine + Server', href: GITHUB_ENGINE_REPO },
+            { label: 'Web client', href: GITHUB_WEB_REPO },
+            { label: 'Protos', href: GITHUB_PROTO_REPO },
+            { label: 'Docs', href: GITHUB_DOCS_REPO },
           ],
         },
       ],
@@ -115,27 +115,27 @@ const config: Config = {
         {
           title: 'Docs',
           items: [
-            {label: 'Introduction', to: '/'},
-            {label: 'User Guide', to: '/guide/overview'},
-            {label: 'Core Engine', to: '/core/overview'},
-            {label: 'Server', to: '/server/overview'},
-            {label: 'Testing', to: '/testing/overview'},
+            { label: 'Introduction', to: '/' },
+            { label: 'User Guide', to: '/guide/overview' },
+            { label: 'Core Engine', to: '/core/overview' },
+            { label: 'Server', to: '/server/overview' },
+            { label: 'Testing', to: '/testing/overview' },
           ],
         },
         {
           title: 'Play',
           items: [
-            {label: 'RabiRiichi (Production)', href: 'https://riichi.rabimimi.com'},
-            {label: 'RabiRiichi-dev', href: 'https://riichi-dev.rabimimi.com'},
+            { label: 'RabiRiichi (Production)', href: 'https://riichi.rabimimi.com' },
+            { label: 'RabiRiichi (Development)', href: 'https://riichi-dev.rabimimi.com' },
           ],
         },
         {
           title: 'GitHub',
           items: [
-            {label: 'Engine + Server', href: GITHUB_ENGINE_REPO},
-            {label: 'Web client', href: GITHUB_WEB_REPO},
-            {label: 'Protos', href: GITHUB_PROTO_REPO},
-            {label: 'Docs', href: GITHUB_DOCS_REPO},
+            { label: 'Engine + Server', href: GITHUB_ENGINE_REPO },
+            { label: 'Web client', href: GITHUB_WEB_REPO },
+            { label: 'Protos', href: GITHUB_PROTO_REPO },
+            { label: 'Docs', href: GITHUB_DOCS_REPO },
           ],
         },
       ],
