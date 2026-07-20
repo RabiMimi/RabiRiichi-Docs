@@ -37,6 +37,8 @@ The WebSocket endpoints are `ws://localhost:5150/ws/public` and
 | `JWT_SECRET` | prod | HMAC key for signing auth tokens. See [Authentication](./auth.md). |
 | `RABIRIICHI_GAME_SAVE_DIR` | no | Enable [replays](./replays.md); directory for `.pb` files. Unset ⇒ replays off. |
 | `RABIRIICHI_GAME_SAVE_TTL` | no | Replay retention in seconds; enables hourly cleanup. Unset ⇒ keep forever. |
+| `RABIRIICHI_DB_PATH` | no | Path to the SQLite database file. Defaults to `rabiriichi.db`. |
+| `RABIRIICHI_PASSWORD_SALT` | no | Salt used to hash user passwords on the client side. Defaults to `RABIRIICHI`. |
 
 `appsettings.json` sets Kestrel to `Http1AndHttp2` (WebSockets ride HTTP/1.1;
 HTTP/2 is available for the dormant gRPC path) and `AllowedHosts: "*"`. CORS is

@@ -30,10 +30,11 @@ the hex user id from the validated claims and look up the `User`; `Fetch` throws
 There are two WebSocket entry points (see [Transport](./transport.md)):
 
 - **`/ws/public`** — no token required. Only handles requests that are safe
-  anonymously: server info, user creation, and replay fetch.
+  anonymously: server info (with password salt), user creation, user login, and replay fetch.
 - **`/ws/connect`** — the first message must be a `SignIn` carrying a valid access
   token. After the handshake, the session can issue authenticated requests (create
-  / join room, ready up, gameplay, get my info).
+  / join room, ready up, gameplay, get my info). When a user successfully establishes
+  an authenticated WebSocket session, a fresh rotated access token is returned.
 
 Typical bootstrap for a new client:
 
@@ -42,10 +43,12 @@ sequenceDiagram
   participant C as Client
   participant P as /ws/public
   participant A as /ws/connect
-  C->>P: create_user { nickname }
-  P-->>C: create_user { id, access_token }
+  C->>P: get_info
+  P-->>C: get_info { password_salt }
+  C->>P: create_user/login_user { username, userData { nickname }, passwordHash }
+  P-->>C: user_info { id, access_token }
   C->>A: sign_in { access_token }
-  A-->>C: user_info
+  A-->>C: user_info { id, access_token } (rotated token)
   Note over C,A: authenticated session established
 ```
 
@@ -54,13 +57,25 @@ the authenticated `GetMyInfo` are `[Authorize]`, and owner-only operations
 (`add_ai`, `remove_room_player`) additionally check that the caller is the room's
 first human seat.
 
+## Password Hashing & Security
+
+Passwords are hashed client-side before being transmitted over WebSockets to ensure plain-text credentials never touch the wire or server memory.
+
+The hashing scheme is defined as:
+```typescript
+passwordHash = sha256(passwordRaw + '@' + passwordSalt)
+```
+
+The server-configured `RABIRIICHI_PASSWORD_SALT` is served dynamically via the `GetInfo` API response so that different servers can configuration distinct salts. The server stores the received hash directly in the database.
+
 ## Configuration
 
 | Env var | Meaning |
 | --- | --- |
 | `JWT_SECRET` | HMAC signing key for tokens. **Required in production.** |
+| `RABIRIICHI_DB_PATH` | Path to the SQLite database file. Defaults to `rabiriichi.db`. |
+| `RABIRIICHI_PASSWORD_SALT` | Salt used to hash user passwords on the client side. Defaults to `RABIRIICHI`. |
 
-:::warning[Set a strong JWT_SECRET in production]
-The Development secret in `launchSettings.json` is for local use only. Anyone who
-knows the signing key can forge tokens.
+:::warning[Set strong secrets in production]
+The Development secret in `launchSettings.json` and default password salt are for local use only. Be sure to configure unique, secure values in production.
 :::
