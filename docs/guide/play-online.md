@@ -13,8 +13,8 @@ in your browser; there's nothing to download.
 
 | Environment | Open in browser | Talks to server |
 | --- | --- | --- |
-| **Production** — 兔兔立直 | https://riichi.rabimimi.com | `wss://riichi-server.rabimimi.com` |
-| **Development** — 兔兔开发 | https://riichi-dev.rabimimi.com | `wss://riichi-server-dev.rabimimi.com` |
+| **Production** — 兔兔立直 / ラビリーチ | https://riichi.rabimimi.com | `wss://riichi-server.rabimimi.com` |
+| **Development** — 兔兔开发 / ミミ開発 | https://riichi-dev.rabimimi.com | `wss://riichi-server-dev.rabimimi.com` |
 
 Use **Production** for normal play. The **Development** instance tracks the latest
 in-progress build and may be unstable or reset without notice.

@@ -7,7 +7,7 @@ description: RabiRiichi is a riichi mahjong engine for .NET, plus the server tha
 
 # RabiRiichi
 
-**RabiRiichi (兔兔立直)** is a [riichi mahjong](https://en.wikipedia.org/wiki/Japanese_mahjong)
+**RabiRiichi (兔兔立直 / ラビリーチ)** is a [riichi mahjong](https://en.wikipedia.org/wiki/Japanese_mahjong)
 engine written in C# for .NET, together with an ASP.NET server that hosts it over
 WebSockets.
 
